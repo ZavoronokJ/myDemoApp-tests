@@ -5,12 +5,12 @@ Feature: Log in app functionality
 
   Scenario: Login with valid credentials
     When User enters username "bob@example.com" and password "10203040"
-    And User clicks "Login" button
+    And User clicks at "Login button" button
     Then User successfully logins and sees "Products" page
 
     Scenario Outline: Login with invalid credentials
       When User enters invalid username "<username>" and password "<password>"
-      And User clicks "Login" button
+      And User clicks at "Login button" button
       Then User get error message "<message>"
       Examples:
         |username          |password |message                                                     |

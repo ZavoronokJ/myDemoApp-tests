@@ -1,7 +1,5 @@
 package steps;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.appium.java_client.AppiumBy;
@@ -21,10 +19,7 @@ public class LoginSteps {
         driver.findElement(AppiumBy.accessibilityId("Username input field")).sendKeys(username);
         driver.findElement(AppiumBy.accessibilityId("Password input field")).sendKeys(password);
     }
-    @And("User clicks {string} button")
-    public void userClicksLoginButton(String button) {
-        driver.findElement(AppiumBy.accessibilityId("Login button")).click();
-    }
+
     @Then("User successfully logins and sees {string} page")
     public void userSuccessfullyLogIn(String page) {
         String pageName = driver.findElement(AppiumBy.androidUIAutomator("text(\"" + page + "\")")).getText();

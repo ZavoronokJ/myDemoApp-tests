@@ -2,13 +2,10 @@ package steps;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebElement;
 
-import java.nio.file.WatchEvent;
 
 import static org.junit.Assert.assertEquals;
 
