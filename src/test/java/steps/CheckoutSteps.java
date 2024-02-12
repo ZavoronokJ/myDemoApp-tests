@@ -17,7 +17,6 @@ public class CheckoutSteps {
     public void userChecksThatHisContains(String accessibilityId, String value) {
 
         WebElement deliveryAddressElement = driver.findElement(AppiumBy.accessibilityId(accessibilityId));
-
         WebElement valueElement = deliveryAddressElement.findElement(AppiumBy.androidUIAutomator("textContains(\"" + value + "\")"));
         Assert.assertTrue(valueElement.isDisplayed());
     }
