@@ -24,7 +24,7 @@ public class DriverFactory {
         System.out.println("Appium service started successfully.");
 
         UiAutomator2Options options = new UiAutomator2Options()
-                .setUdid("emulator-5556")
+                .setUdid("emulator-5554")
                 .setPlatformName("Android")
                 .setPlatformVersion("12.0")
                 .setAutomationName("UiAutomator2")
