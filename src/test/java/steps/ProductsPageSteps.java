@@ -1,14 +1,13 @@
 package steps;
 
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import static org.testng.AssertJUnit.assertFalse;
@@ -21,24 +20,10 @@ public class ProductsPageSteps {
         this.driver = DriverFactory.getDriver();
     }
 
-    @Given("User scrolls down the page")
-    public void userScrollsDownThePage() throws InterruptedException{
-        Thread.sleep(2000);
-
-        ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture",
-                ImmutableMap.builder()
-                        .put("left", 404)
-                        .put("top", 400)
-                        .put("width", 110)
-                        .put("height", 1500)
-                        .put("direction", "down")
-                        .put("percent", 0.85)
-                        .build());
-    }
-
     @When("User should see a continuous list of products")
-    public void userShouldSeeAContinuousListOfProducts() {
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void userShouldSeeAContinuousListOfProducts() throws InterruptedException {
+
+        Thread.sleep(2000);
 
         String lastProductTitleText = driver.findElement(AppiumBy.androidUIAutomator(
                 "text(\"Test.allTheThings() T-Shirt\")")).getAttribute("displayed");
@@ -47,7 +32,7 @@ public class ProductsPageSteps {
 
     @Then("User sees products in the list where product photo, title, price and rating is displayed")
     public void userSeesProductsInTheListWithVisibleAttributes() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         List<WebElement> elements = driver.findElements(AppiumBy.androidUIAutomator(
                 "new UiSelector().description(\"store item\")"
@@ -113,7 +98,8 @@ public class ProductsPageSteps {
 
     @Then("Popup is not displayed")
     public void popupIsNotDisplayed() throws InterruptedException {
-        Thread.sleep(1000);
+
+        Thread.sleep(2000);
 
         List<WebElement> elements = driver.findElements(AppiumBy.accessibilityId("Close Modal button"));
 

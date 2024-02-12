@@ -3,7 +3,6 @@ package steps;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
@@ -33,11 +32,5 @@ public class LogoutSteps {
     @When("User clicks on {string} button")
     public void userClicksOnButton(String button) {
         driver.findElement(AppiumBy.androidUIAutomator("text(\"" + button + "\")")).click();
-    }
-
-    @Then("User is auto redirected to {string} page")
-    public void userIsAutoRedirectedToPage(String page) {
-        String pageName = driver.findElement(AppiumBy.androidUIAutomator("text(\"" + page + "\")")).getText();
-        assertEquals(pageName, page);
     }
 }
